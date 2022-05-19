@@ -15,41 +15,39 @@ const sum = (() => {
 })();
 
 
+
+
+
+
 function createCounter(a, b) {
 
     let count = a;
 
-    this.delete = function () {
-        return count = a;
-    }
-
-
-    this.increase = function () {
-
+    const increase = function () {
         if (count !== a) {
-
             for (let i = 1; i < b; i++) {
                 count++;
             }
-
         }
 
         return count++;
-
     }
 
+    increase.del = function () {
+        return count = a;
+    }
+    return increase;
 }
 
 
-const counter = new createCounter(1, 2);
+const counter = createCounter(1, 2);
 
-console.log(counter.increase());
-console.log(counter.increase());
-console.log(counter.increase());
-console.log(counter.delete());
-console.log(counter.increase());
-console.log(counter.increase());
-
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter.del());
+console.log(counter());
+console.log(counter());
 
 
 
